@@ -1,8 +1,8 @@
 {
-  "description": "Vanilla Debian Jessie base box",
+  "description": "Vanilla Debian Wheezy base box",
   "variables": {
-      "box_version": "8.4.0",
-      "box_changelog": "* new stable point release",
+      "box_version": "7.10.0",
+      "box_changelog": "* new oldstable point release",
       "atlas_token": "{{env `ATLAS_TOKEN`}}"
     },
   "builders": [
@@ -10,7 +10,7 @@
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
-        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/vanilla-debian-8-jessie-preseed.cfg <wait>",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/vanilla-debian-7-wheezy-preseed.cfg <wait>",
         "debian-installer=en_US <wait>",
         "auto <wait>",
         "locale=en_US <wait>",
@@ -27,16 +27,16 @@
       "disk_size": "10140",
       "headless": true,
       "http_directory": "http",
-      "iso_checksum": "7a6b418e6a4ee3ca75dda04d79ed96c9e2c33bb0c703ca7e40c6374ab4590748",
+      "iso_checksum": "1ade0f396aee06e51e6333f2a947c7ab234f63c61e4a8495f9a20a16cff755b2",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.4.0/amd64/iso-cd/debian-8.4.0-amd64-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/mirror/cdimage/archive/7.10.0/amd64/iso-cd/debian-7.10.0-amd64-netinst.iso",
       "shutdown_command": "sudo /sbin/halt -p",
       "ssh_password": "vagrant",
       "ssh_username": "vagrant",
       "ssh_port": "22",
       "ssh_wait_timeout": "10000s",
       "type": "qemu",
-      "vm_name": "debian-jessie"
+      "vm_name": "debian-wheezy"
     }
   ],
   "post-processors": [

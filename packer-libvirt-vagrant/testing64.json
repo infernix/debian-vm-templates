@@ -1,10 +1,9 @@
 {
-  "description": "Vanilla Debian Jessie base box",
+  "description": "Testing base box using contrib sources",
   "variables": {
-      "box_version": "8.4.0",
-      "box_changelog": "* new stable point release",
-      "atlas_token": "{{env `ATLAS_TOKEN`}}"
-    },
+      "box_version": "8.99.0",
+      "box_changelog": "* unstable build"
+  },
   "builders": [
     {
       "boot_command": [
@@ -27,23 +26,23 @@
       "disk_size": "10140",
       "headless": true,
       "http_directory": "http",
-      "iso_checksum": "7a6b418e6a4ee3ca75dda04d79ed96c9e2c33bb0c703ca7e40c6374ab4590748",
-      "iso_checksum_type": "sha256",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.4.0/amd64/iso-cd/debian-8.4.0-amd64-netinst.iso",
+      "iso_checksum": "03f7202892ff3ce76ad5703ebfeeabbca2af729ae5401ac17ddebe81f71cb692475454f982eb63e58ab308e45cf9c53293b5048c765b28d1469d4d5ae4dbbc17",
+      "iso_checksum_type": "sha512",
+      "iso_url": "http://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-cd/debian-testing-amd64-netinst.iso",
       "shutdown_command": "sudo /sbin/halt -p",
       "ssh_password": "vagrant",
       "ssh_username": "vagrant",
       "ssh_port": "22",
       "ssh_wait_timeout": "10000s",
       "type": "qemu",
-      "vm_name": "debian-jessie"
+      "vm_name": "debian-testing"
     }
   ],
   "post-processors": [
     [
     {
       "type": "vagrant",
-      "output": "jessie64.box",
+      "output": "testing64.box",
       "vagrantfile_template": "assets/rsync_for_sharedfolders_Vagrantfile"
     }
     ]
@@ -66,4 +65,3 @@
     }
   ]
 }
-
